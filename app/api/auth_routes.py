@@ -10,6 +10,10 @@ auth_routes = Blueprint('auth', __name__)
 def validation_errors_to_error_messages(validation_errors):
     """
     Simple function that turns the WTForms validation errors into a simple list
+
+    ['name : Name is required', 
+    'age : Age must be a number', 'age : Age is required']
+
     """
     errorMessages = []
     for field in validation_errors:
@@ -21,7 +25,7 @@ def validation_errors_to_error_messages(validation_errors):
 @auth_routes.route('/')
 def authenticate():
     """
-    Authenticates a user.
+    Authenticates a user.  is_authenticated is from UserMixin
     """
     if current_user.is_authenticated:
         return current_user.to_dict()
