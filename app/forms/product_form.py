@@ -3,7 +3,7 @@ from wtforms import StringField, IntegerField, SelectField, TextAreaField, FileF
 from wtforms.validators import DataRequired, Email, ValidationError
 from flask_wtf.file import FileAllowed, FileRequired, FileField
 
-ALLOWED_EXTENSIONS = {'pdf', 'png', 'jpg', 'jpeg', 'gif'}
+# ALLOWED_EXTENSIONS = {'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 
 categories = [
     "Art & Collectible", "Craft Supplies & Tools",
@@ -15,8 +15,7 @@ class ProductForm(FlaskForm):
 
     name = StringField('name', validators=[DataRequired()])
     price = IntegerField('price', validators=[DataRequired()])
-    image = FileField("photo", validators=[
-        FileAllowed(list(ALLOWED_EXTENSIONS))])
+    image = StringField('image', validators=[DataRequired()])
     category = SelectField('category', choices=categories)
     description = TextAreaField('description', validators=[DataRequired()])
     quantity = IntegerField('quantity', validators=[DataRequired()])
