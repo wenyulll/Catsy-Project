@@ -20,22 +20,20 @@ class Product(db.Model):
     userId = db.Column(db.Integer, db.ForeignKey(
         add_prefix_for_prod('users.id')))
 
-    user = db.relationship("User", back_populates='products')
+    users = db.relationship("User", back_populates='products')
     reviews = db.relationship(
         'Review', back_populates='products', cascade="all, delete", lazy="joined")
 
-
-def to_dict(self):
-    return {
-        'id': self.id,
-        'name': self.name,
-        'price': self.price,
-        'image': self.image,
-        'category': self.category,
-        'quantity': self.quantity,
-        'description': self.description,
-        'createdAt': self.createdAt,
-        'updatedAt': self.updatedAt,
-        'userId': self.userId,
-        # 'reviews': [review.to_dict() for review in self.reviews]
-    }
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'price': self.price,
+            'image': self.image,
+            'category': self.category,
+            'quantity': self.quantity,
+            'description': self.description,
+            'createdAt': self.createdAt,
+            'updatedAt': self.updatedAt,
+            'userId': self.userId,
+        }
