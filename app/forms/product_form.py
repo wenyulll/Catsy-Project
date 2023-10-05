@@ -19,5 +19,5 @@ class ProductForm(FlaskForm):
     category = SelectField('category', choices=categories)
     description = TextAreaField('description', validators=[DataRequired()])
     quantity = IntegerField('quantity', validators=[DataRequired()])
-    userId = IntegerField('userId', validators=[DataRequired()])
+    # userId = IntegerField('userId', validators=[DataRequired()])
     submit = SubmitField("Submit")

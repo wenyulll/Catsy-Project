@@ -38,7 +38,9 @@ def get_single_product(id):
     """
     return single product by id
     """
-    product = Product.query.filter_by(id=id).first()
+    # product = Product.query.filter_by(id=id).first()
+    product = Product.query.get(id)
+
     if product:
         return product.to_dict()
     else:
@@ -70,10 +72,32 @@ def new_product():
 
 @products.route("/update/<int:id>", methods=["PUT"])
 def update_product(id):
-    pass
+    form = ProductForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        product_to_update = Product.query.get(id)
+
+        if not product_to_update:
+            return "Product not found", 404
+
+        if current_user.id != product_to_update.userId:
+            return "You are not the owner of this product", 403
+
+        product_to_update.name = form.data['name']
+        product_to_update.price = form.data['price']
+        product_to_update.image = form.data['image']
+        product_to_update.category = form.data['category']
+        product_to_update.description = form.data['description']
+        product_to_update.quantity = form.data['quantity']
+
+        db.session.commit()
+
+        return product_to_update.to_dict(), 200
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 
-@products.route("/delete/<int:id>")
+@products.route("/delete/<int:id>", methods=["DELETE"])
 def delete_product(id):
     product_to_delete = Product.query.get(id)
 
@@ -82,4 +106,4 @@ def delete_product(id):
 
     db.session.delete(product_to_delete)
     db.session.commit()
-    return redirect('/')
+    return "Product deleted successfully", 200
