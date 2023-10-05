@@ -21,7 +21,7 @@ def validation_errors_to_error_messages(validation_errors):
     return errorMessages
 
 
-@products.route("/")
+@products.route("")
 def get_all_products():
     """
     return all products
@@ -38,6 +38,7 @@ def get_single_product(id):
     """
     return single product by id
     """
+
     # product = Product.query.filter_by(id=id).first()
     product = Product.query.get(id)
 

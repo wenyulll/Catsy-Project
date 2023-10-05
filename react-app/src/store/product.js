@@ -40,24 +40,30 @@ export const deleteProduct = (productId) => ({
 export const loadProductsThunk = () => async (dispatch) => {
     try {
         const response = await fetch('/api/products');
+
         const data = await response.json();
-        console.log("kjkjkjkjkj", data)
+
+        console.log("kjkjkjkjkj", data);
         dispatch(loadProducts(data));
+        console.log(dispatch(loadProducts(data)))
     } catch (error) {
-        console.error('Error loading products:', error);
+        console.error(error);
     }
 };
 
 //Thunk to load single product
-export const loadProductThunk = () => async (dispatch) => {
+export const loadProductThunk = (productId) => async (dispatch) => {
     try {
-        const response = await fetch('/api/products/:id')
+        const response = await fetch(`/api/products/${productId}`);
         const data = await response.json();
-        dispatch(loadProduct(data))
+
+        console.log("singgggggle product", data)
+        dispatch(loadProduct(data));
     } catch (error) {
-        console.error('Error loading product:', error);
+        console.error(error);
     }
-}
+};
+
 
 
 

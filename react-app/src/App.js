@@ -5,7 +5,9 @@ import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
-import Products from "./components/Products"
+import Products from "./components/Products/index"
+import ProductDetail from "./components/ProductDetail/ProductDetail";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -28,7 +30,9 @@ function App() {
           <Route exact path="/">
             <Products />
           </Route>
-
+          <Route exact path="/products/:productId">
+            <ProductDetail />
+          </Route>
         </Switch>
       )}
     </>

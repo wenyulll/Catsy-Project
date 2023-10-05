@@ -1,31 +1,30 @@
-import React, { useEffect, useState } from "react";
-import { useHistory } from 'react-router-dom';
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-// import { getReviews } from "../../store/reviews";
 import { loadProductsThunk } from "../../store/product";
-// import { loadProductThunk } from "../../store/product";
+import ProductTile from "./ProductTile";
+import "./index.css"
+
 const Products = () => {
-    const dispatch = useDispatch()
-    // const history = useHistory();
-    // const allProducts = []
-    // const products = useSelector((state) => state.products.products);
+    const dispatch = useDispatch();
 
+    const products = useSelector((state) => state.products.products);
 
-    // Object.values(products)?.map(product => allProducts.push(product));
-
-    // console.log("cxdvcvx", allProducts)
-    useEffect(() => (
-        dispatch(loadProductsThunk())
-    ), [dispatch])
-    // const handleProductsClick = (productId) => {
-    //     history.push(`/posts/${productId}`);
-    // };
+    useEffect(() => {
+        dispatch(loadProductsThunk());
+    }, [dispatch]);
 
     return (
         <div>
-            HELOOOOOOOOO
+            <h1>Product List</h1>
+            <div className="map-all-products">
+                <ul>
+                    {products && products.map(product => (
+                        <ProductTile key={product.id} product={product} />
+                    ))}
+                </ul>
+            </div>
         </div>
-    )
+    );
 }
 
 export default Products;
