@@ -9,6 +9,7 @@ const Products = () => {
 
     const products = useSelector((state) => state.products.products);
 
+    console.log("jksjfkjsk", products)
     useEffect(() => {
         dispatch(loadProductsThunk());
     }, [dispatch]);
@@ -18,7 +19,7 @@ const Products = () => {
             <h1>Product List</h1>
             <div className="map-all-products">
                 <ul>
-                    {products && products.map(product => (
+                    {products && Object.values(products).map(product => (
                         <ProductTile key={product.id} product={product} />
                     ))}
                 </ul>
