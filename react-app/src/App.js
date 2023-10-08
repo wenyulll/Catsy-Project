@@ -7,7 +7,9 @@ import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import Products from "./components/Products/index"
 import ProductDetail from "./components/ProductDetail/ProductDetail";
-import ProductForm from "./components/ProductForm";
+// import ProductForm from "./components/ProductForm";
+import StoreManager from "./components/StoreManager";
+import CreateForm from "./components/ProductForm/CreateProduct";
 
 function App() {
   const dispatch = useDispatch();
@@ -30,11 +32,15 @@ function App() {
           <Route exact path="/">
             <Products />
           </Route>
-          <Route exact path="/products/:productId">
-            <ProductDetail />
+          <Route exact path="/products/mystore">
+            <StoreManager />
           </Route>
           <Route exact path="/products/new">
-            <ProductForm />
+            <CreateForm />
+          </Route>
+          <Route exact path="/products/:productId">
+            <ProductDetail />
+
           </Route>
         </Switch>
       )}

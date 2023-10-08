@@ -2,12 +2,22 @@ import React from "react";
 import './ProductTile.css'
 import { useHistory } from "react-router-dom";
 
-const ProductTile = ({ product }) => {
+const ProductTile = ({ product, isManage }) => {
     const history = useHistory();
 
     const handleProductClick = () => {
         history.push(`/products/${product.id}`);
     };
+
+    const handleEdit = () => {
+
+    };
+
+    const handleDelete = () => {
+
+    };
+    console.log('isManage', isManage)
+
     return (
         <div className="all-product-tiles" onClick={handleProductClick}>
             <ul>
@@ -23,6 +33,8 @@ const ProductTile = ({ product }) => {
                     </div>
 
                 </div>
+                {isManage && (<button onClick={() => handleEdit(product.id)}>Edit</button>)}
+                {isManage && (<button onClick={() => handleDelete(product.id)}>Delete</button>)}
             </ul>
         </div>
     );
