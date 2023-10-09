@@ -92,6 +92,7 @@ def new_product():
 def update_product(id):
     form = ProductForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    print('update_product')
 
     if form.validate_on_submit():
         product_to_update = Product.query.get(id)

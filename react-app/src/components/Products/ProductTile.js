@@ -39,21 +39,19 @@ const ProductTile = ({ product, isManage }) => {
                     </div>
 
                 </div>
-                {isManage && (<button onClick={handleEdit}>Edit</button>)}
-                {isManage && <span className='open-modal-button' onClick={handleDelete}>
-                    <OpenModalButton
-                        buttonText='Delete'
-                        modalComponent={<DeleteProductModal productId={product.id} />}
-                    />
-                </span>}
-                {/* <span className='open-modal-button'>
-                    <OpenModalButton
-                        buttonText='Delete'
-                        modalComponent={<DeleteProductModal productId={product.id} />}
-                    />
-                </span> */}
-
-
+                <div className="edit-delete-button-container">
+                    {isManage && (
+                        <>
+                            <button onClick={handleEdit}>Edit</button>
+                            <span className='open-modal-button' onClick={handleDelete}>
+                                <OpenModalButton
+                                    buttonText='Delete'
+                                    modalComponent={<DeleteProductModal productId={product.id} />}
+                                />
+                            </span>
+                        </>
+                    )}
+                </div>
             </ul>
         </div>
     );

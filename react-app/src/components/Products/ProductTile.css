@@ -6,3 +6,65 @@
     max-width: 350px;
 
 }
+
+
+.product-tile {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: #f5f5f5;
+    }
+}
+
+.product-tile-image-container {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.product-tile-image-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+.product-tile-text-container {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-tile-name {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.product-tile-price {
+    margin-top: 5px;
+    font-size: 1rem;
+}
+
+.product-tile-buttons {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.product-tile-edit {
+    background-color: #ff8c00;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.product-tile-delete {
+    text-align: right;
+}

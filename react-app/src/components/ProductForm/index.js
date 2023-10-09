@@ -26,7 +26,7 @@ const ProductForm = ({ product, formType }) => {
         let resErrors = {}
 
         const formData = {
-            // ...formData,
+            ...product,
             name,
             price,
             image,
@@ -60,7 +60,6 @@ const ProductForm = ({ product, formType }) => {
                     history.push(`/products/${product.id}`);
                 }
             } else if (formType === 'Update') {
-
                 const updatedProduct = await dispatch(updateProductThunk(formData));
                 product = updatedProduct
                 if (updatedProduct && updatedProduct.id) {
