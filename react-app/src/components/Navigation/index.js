@@ -20,18 +20,19 @@ function Navigation({ isLoaded }) {
 				</NavLink>
 			</div>
 			<div className="search-container">
-				<form onSubmit={handleNoFeatureSubmit}>
-					<input type="text" placeholder="Search..." className="search-input" />
-				</form>
-				<button type="submit" className="search-button">Search</button>
+				{/* <form onSubmit={handleNoFeatureSubmit}> */}
+				<input type="text" placeholder="Search..." className="search-input" />
+				<button type="submit" className="search-button" onClick={handleNoFeatureSubmit}>Search</button>
+				{/* </form> */}
 			</div>
 			<div className='icon-profile-container'>
 				<div className="icon-container">
-					<div className="store-icon-wrapper">
-						<NavLink to="/products/mystore">
-							<i className="fas fa-store"> </i>
-						</NavLink>
-					</div>
+					{sessionUser &&
+						(<div className="store-icon-wrapper">
+							<NavLink to="/products/mystore">
+								<i className="fas fa-store"> </i>
+							</NavLink>
+						</div>)}
 					<div className="cart-icon-wrapper" onClick={handleNoFeatureSubmit}>
 						<i className="fas fa-shopping-cart"></i>
 					</div>

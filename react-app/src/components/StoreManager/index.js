@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import ProductTile from '../Products/ProductTile';
 import { loadProductsThunk } from "../../store/product";
+import { Link } from 'react-router-dom';
+import './index.css'
 
 const StoreManager = () => {
     const dispatch = useDispatch();
@@ -21,12 +23,19 @@ const StoreManager = () => {
     }, [dispatch]);
 
     return (
-        <div>
-            {userProducts && userProducts.map(product => (
-                <div key={product.id}>
-                    <ProductTile product={product} isManage={true} />
-                </div>
-            ))}
+        <div className='store-manager-contaienr'>
+            <div className='add-listing'>
+                <Link to="/products/new">
+                    <button>Add a Listing</button>
+                </Link>
+            </div>
+            <div className='map-all-products'>
+                {userProducts && userProducts.map(product => (
+                    <div key={product.id}>
+                        <ProductTile product={product} isManage={true} />
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }
