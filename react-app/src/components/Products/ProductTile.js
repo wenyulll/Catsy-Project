@@ -1,19 +1,25 @@
 import React from "react";
 import './ProductTile.css'
 import { useHistory } from "react-router-dom";
-
+import DeleteProductModal from "../DeleteProductModal";
+import OpenModalButton from "../OpenModalButton";
 const ProductTile = ({ product, isManage }) => {
     const history = useHistory();
 
-    const handleProductClick = () => {
+    const handleProductClick = (e) => {
+        e.preventDefault();
         history.push(`/products/${product.id}`);
     };
 
-    const handleEdit = () => {
-
+    const handleEdit = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        history.push(`/products/update/${product.id}/`)
     };
 
-    const handleDelete = () => {
+    const handleDelete = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
 
     };
     console.log('isManage', isManage)
@@ -33,8 +39,21 @@ const ProductTile = ({ product, isManage }) => {
                     </div>
 
                 </div>
-                {isManage && (<button onClick={() => handleEdit(product.id)}>Edit</button>)}
-                {isManage && (<button onClick={() => handleDelete(product.id)}>Delete</button>)}
+                {isManage && (<button onClick={handleEdit}>Edit</button>)}
+                {isManage && <span className='open-modal-button' onClick={handleDelete}>
+                    <OpenModalButton
+                        buttonText='Delete'
+                        modalComponent={<DeleteProductModal productId={product.id} />}
+                    />
+                </span>}
+                {/* <span className='open-modal-button'>
+                    <OpenModalButton
+                        buttonText='Delete'
+                        modalComponent={<DeleteProductModal productId={product.id} />}
+                    />
+                </span> */}
+
+
             </ul>
         </div>
     );

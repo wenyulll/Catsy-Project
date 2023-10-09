@@ -15,7 +15,6 @@ const StoreManager = () => {
     if (allProducts) {
         userProducts = Object.values(allProducts).filter(product => product.userId === sessionUser.id)
     }
-    console.log('sadasdasda', userProducts)
 
     useEffect(() => {
         dispatch(loadProductsThunk());

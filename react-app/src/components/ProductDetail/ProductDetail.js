@@ -26,23 +26,24 @@ const ProductDetail = () => {
         console.log(`${product.name} added to cart!`);
     };
     return (
-        <div className="product-detail">
-            <div className="product-detail-left-container">
-                <h2>{product.name}</h2>
-                <img src={product.image} alt={product.name} />
+        <>
+            <div className="product-detail">
+                <div className="product-detail-left-container">
+                    <h2>{product.name}</h2>
+                    <img src={product.image} alt={product.name} />
+                </div>
+                <div className="product-detail-right-container">
+                    <p>Price: ${product.price}</p>
+                    <p>Category: {product.category}</p>
+
+                    <p>Quantity: {product.quantity}</p>
+                    <p>Owner: {product.userId}</p>
+                    <p>Description: {product.description}</p>
+                    <button onClick={handleAddToCart}>Add to Cart</button>
+                </div>
             </div>
-            <div className="product-detail-right-container">
-                <p>Price: ${product.price}</p>
-                <p>Category: {product.category}</p>
 
-                <p>Quantity: {product.quantity}</p>
-                <p>Owner: {product.userId}</p>
-                <p>Description: {product.description}</p>
-                <button onClick={handleAddToCart}>Add to Cart</button>
-            </div>
-
-
-        </div>
+        </>
     )
 }
 

@@ -115,6 +115,7 @@ export const updateProductThunk = productData => async dispatch => {
         if (response.ok) {
             const data = await response.json();
             dispatch(updateProduct(data));
+            return data
         }
     } catch (error) {
         console.error(error);
@@ -124,7 +125,9 @@ export const updateProductThunk = productData => async dispatch => {
 // Thunk to delete a product
 export const deleteProductThunk = productId => async dispatch => {
     try {
-        const response = await fetch(`/api/products/delete/${productId}`, { method: 'DELETE' });
+        const response = await fetch(`/api/products/delete/${productId}`, {
+            method: 'DELETE'
+        });
 
         if (response.ok) {
             dispatch(deleteProduct(productId));
@@ -166,9 +169,21 @@ const productsReducer = (state = initialState, action) => {
 
 
         case DELETE_PRODUCT:
+            // let newState1 = {};
+            // newState1 = { ...state, products: {} }
+            // Object.values(state.products).forEach(el => {
+            //     if (el.id !== action.payload) {
+            //         newState1.products[el.id] = { ...el }
+            //     }
+
+            // });
+            // console.log('action.productId', action)
+            // console.log('state', state)
+            // console.log('newState1', newState1)
+            // return newState1;
             const updatedProducts = { ...state.products };
-            delete updatedProducts[action.productId];
-            return { ...state, products: updatedProducts };
+            delete updatedProducts[action.payload];
+            return { ...state, products: { ...updatedProducts } };
         default:
             return state;
     }

@@ -8,13 +8,15 @@ const ProductForm = ({ product, formType }) => {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const [name, setName] = useState(product?.name || '');
-    const [price, setPrice] = useState(product?.price || '');
-    const [image, setImage] = useState(product?.image || '');
-    const [category, setCategory] = useState(product?.category || '');
-    const [description, setDescription] = useState(product?.description || '');
-    const [quantity, setQuantity] = useState(product?.quantity || '');
+    const [name, setName] = useState(product.name);
+    const [price, setPrice] = useState(product.price);
+    const [image, setImage] = useState(product.image);
+    const [category, setCategory] = useState(product.category);
+    const [description, setDescription] = useState(product.description);
+    const [quantity, setQuantity] = useState(product.quantity);
     const [errors, setErrors] = useState({});
+
+
 
     // const products = useSelector((state) => state.products.products);
     const handleSubmit = async (e) => {
@@ -55,6 +57,13 @@ const ProductForm = ({ product, formType }) => {
 
                 product = newProduct;
                 if (newProduct && newProduct.id) {
+                    history.push(`/products/${product.id}`);
+                }
+            } else if (formType === 'Update') {
+
+                const updatedProduct = await dispatch(updateProductThunk(formData));
+                product = updatedProduct
+                if (updatedProduct && updatedProduct.id) {
                     history.push(`/products/${product.id}`);
                 }
             }
