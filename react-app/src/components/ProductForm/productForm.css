@@ -1,0 +1,91 @@
+.product-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #eaeaea;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-form h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.product-form-div {
+    margin-bottom: 20px;
+}
+
+.product-form-name,
+.product-form-description,
+.product-form-price,
+.product-form-quantity,
+.product-form-images-div,
+.product-form-category {
+    margin-bottom: 20px;
+}
+
+.product-form-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-inputs {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.form-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.price-input-div {
+    display: flex;
+    align-items: center;
+}
+
+.price-input-div input {
+    flex-grow: 1;
+    padding-left: 5px;
+}
+
+.form-images {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.form-errors {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+#create-form-submit-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #ff8c00;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#create-form-submit-button:hover {
+    background-color: #ff6f00;
+    transform: scale(1.05);
+}

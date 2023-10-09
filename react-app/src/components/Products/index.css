@@ -1,3 +1,39 @@
+.welecome-banner {
+    background-color: orange;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.eek-text {
+    font-style: italic;
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+.Halloween {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.participating {
+    font-size: 0.8em;
+    margin-top: auto;
+}
+
+.underline-text {
+    text-decoration: underline;
+}
+
+.welcome-message {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
 .map-all-products ul {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -5,4 +41,11 @@
     width: 100%;
     max-width: 1300px;
     margin: 0 auto;
+
+    margin-top: 20px;
+
+}
+
+.underline-text {
+    text-decoration: underline;
 }

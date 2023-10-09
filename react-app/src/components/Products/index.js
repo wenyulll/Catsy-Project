@@ -6,21 +6,30 @@ import "./index.css"
 
 const Products = () => {
     const dispatch = useDispatch();
-
     const products = useSelector((state) => state.products.products);
+    const user = useSelector((state) => state.session.user);
 
-    console.log("jksjfkjsk", products)
+    // console.log("jksjfkjsk", products)
     useEffect(() => {
         dispatch(loadProductsThunk());
     }, [dispatch]);
 
     return (
         <div>
-            <h1>Product List</h1>
+            <div className="welcome-message">
+                {user && <h2>Welcome back, <span className="underline-text">{user.username}</span>!</h2>}
+            </div>
+
+            <div className="welecome-banner">
+                <div className="eek-text">Eek! Almost gone!</div>
+                <div className='Halloween'>Halloween picks up to 30% OFF</div>
+                <div className='participating'>Participating Shops only.Terms apply</div>
+            </div>
+
             <div className="map-all-products">
                 <ul>
                     {products && Object.values(products).map(product => (
-                        <ProductTile key={product.id} product={product} />
+                        <ProductTile key={product.id} product={product} isManage={false} />
                     ))}
                 </ul>
             </div>

@@ -17,7 +17,17 @@ function LoginFormModal() {
     if (data) {
       setErrors(data);
     } else {
-        closeModal()
+      closeModal()
+    }
+  };
+
+  const handleDemoSubmit = async (e) => {
+    e.preventDefault();
+    const data = await dispatch(login('demo@aa.io', 'password'));
+    if (data) {
+      setErrors(data);
+    } else {
+      closeModal()
     }
   };
 
@@ -48,7 +58,8 @@ function LoginFormModal() {
             required
           />
         </label>
-        <button type="submit">Log In</button>
+        <button className='handle-sumbit' type="submit">Log In</button>
+        <div className="handle-demo-submit" onClick={handleDemoSubmit}>Demo</div>
       </form>
     </>
   );

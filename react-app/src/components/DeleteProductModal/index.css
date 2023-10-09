@@ -1,0 +1,63 @@
+.delete-modal {
+    width: 400px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+}
+
+#yes {
+    background-color: #ff8c00;
+    color: white;
+    width: 350px;
+    height: 50px;
+    margin-bottom: 10px;
+    /* Add margin to create space between buttons */
+    box-shadow: 3px 3px black;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#no {
+    background-color: rgb(74, 72, 72);
+    color: white;
+    width: 350px;
+    height: 50px;
+    box-shadow: 3px 3px black;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Add some space between the buttons */
+#no+#yes {
+    margin-top: 10px;
+}
+
+
+#yes:hover,
+#no:hover {
+    transform: scale(1.05);
+}
+
+
+h1 {
+    font-size: 30px;
+}
+
+h2 {
+    font-size: 20px;
+}

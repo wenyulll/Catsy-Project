@@ -1,13 +1,29 @@
 import React from "react";
 import './ProductTile.css'
 import { useHistory } from "react-router-dom";
-
-const ProductTile = ({ product }) => {
+import DeleteProductModal from "../DeleteProductModal";
+import OpenModalButton from "../OpenModalButton";
+const ProductTile = ({ product, isManage }) => {
     const history = useHistory();
 
-    const handleProductClick = () => {
+    const handleProductClick = (e) => {
+        e.preventDefault();
         history.push(`/products/${product.id}`);
     };
+
+    const handleEdit = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        history.push(`/products/update/${product.id}/`)
+    };
+
+    const handleDelete = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+    };
+    console.log('isManage', isManage)
+
     return (
         <div className="all-product-tiles" onClick={handleProductClick}>
             <ul>
@@ -23,6 +39,21 @@ const ProductTile = ({ product }) => {
                     </div>
 
                 </div>
+                {isManage && (<button onClick={handleEdit}>Edit</button>)}
+                {isManage && <span className='open-modal-button' onClick={handleDelete}>
+                    <OpenModalButton
+                        buttonText='Delete'
+                        modalComponent={<DeleteProductModal productId={product.id} />}
+                    />
+                </span>}
+                {/* <span className='open-modal-button'>
+                    <OpenModalButton
+                        buttonText='Delete'
+                        modalComponent={<DeleteProductModal productId={product.id} />}
+                    />
+                </span> */}
+
+
             </ul>
         </div>
     );

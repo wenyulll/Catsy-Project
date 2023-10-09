@@ -48,6 +48,23 @@ def get_single_product(id):
         return {"error": "Product not found"}, 404
 
 
+# @products.route("/products/user/<int:id>")
+# # @login_required
+# def get_user_products():
+#     """
+#     Returns all products associated with the current user.
+#     """
+
+#     user_products = Product.query.filter_by(userId=current_user.id).all()
+
+#     if not user_products:
+#         return {"error": "No products found for this user"}, 404
+
+#     products_list = [product.to_dict() for product in user_products]
+
+#     return {"products": products_list}
+
+
 @products.route("/new", methods=["POST"])
 def new_product():
     form = ProductForm()
