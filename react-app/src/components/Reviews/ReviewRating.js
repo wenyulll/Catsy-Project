@@ -10,7 +10,7 @@ const ReviewRating = ({ stars, disabled, onChange }) => { //stars（当前评分
         const handleClick = () => onChange(number);
 
         const isFilled = activeRating >= number;
-        const starClassName = isFilled ? "fa fa-star" : "fa fa-star-o";
+        const starClassName = isFilled ? "fa fa-star" : "far fa-star";
 
         return (
             <div

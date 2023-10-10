@@ -34,11 +34,11 @@ export const updateReview = (review) => ({
 
 export const fetchReviewsThunk = () => async (dispatch) => {
     try {
-        const response = await csrfFetch(`/api/reviews`);
+        const response = await fetch(`/api/reviews`);
 
         if (response.ok) {
             const reviews = await response.json();
-            dispatch(loadReviewsAction(reviews));
+            dispatch(loadReviews(reviews));
         };
     } catch (error) {
         console.error(error);
@@ -49,11 +49,11 @@ export const fetchReviewsThunk = () => async (dispatch) => {
 
 export const fetchSingleReviewThunk = (reviewId) => async (dispatch) => {
     try {
-        const response = await csrfFetch(`/api/reviews/${reviewId}`);
+        const response = await fetch(`/api/reviews/${reviewId}`);
 
         if (response.ok) {
             const review = await response.json();
-            dispatch(loadSingleReviewAction(review));
+            dispatch(loadReview(review));
         } else {
             console.error('Failed to fetch the review:', response.statusText);
         }
@@ -64,9 +64,10 @@ export const fetchSingleReviewThunk = (reviewId) => async (dispatch) => {
 
 export const createReviewThunk = (reviewData) => async (dispatch) => {
     try {
-        const { rating, review } = reviewData;
+        const { stars, review } = reviewData;
+        const rating = stars;
 
-        const response = await csrfFetch(`/api/reviews/new`, {
+        const response = await fetch(`/api/reviews/products/${reviewData.productId}`, {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -77,7 +78,7 @@ export const createReviewThunk = (reviewData) => async (dispatch) => {
 
         if (response.ok) {
             const newReview = await response.json();
-            dispatch(createReviewAction(newReview));
+            dispatch(createReview(newReview));
             return newReview;
         }
     } catch (e) {
@@ -87,12 +88,13 @@ export const createReviewThunk = (reviewData) => async (dispatch) => {
 
 export const deleteReviewThunk = (reviewId) => async (dispatch) => {
     try {
-        const response = await csrfFetch(`/api/reviews/delete/${reviewId}`, {
+        const response = await fetch(`/api/reviews/delete/${reviewId}`, {
             method: 'DELETE'
         });
 
         if (response.ok) {
-            dispatch(deleteReviewAction(reviewId));
+            dispatch(deleteReview(reviewId));
+            return reviewId;
         }
     } catch (e) {
         console.error("Error deleting review:", e);
@@ -101,9 +103,10 @@ export const deleteReviewThunk = (reviewId) => async (dispatch) => {
 
 export const updateReviewThunk = (reviewData) => async (dispatch) => {
     try {
-        const { id, rating, review } = reviewData;
+        const { id, stars, review } = reviewData;
+        const rating = stars;
 
-        const response = await csrfFetch(`/api/reviews/update/${id}`, {
+        const response = await fetch(`/api/reviews/update/${id}`, {
             method: 'PUT',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -114,7 +117,7 @@ export const updateReviewThunk = (reviewData) => async (dispatch) => {
 
         if (response.ok) {
             const updatedReview = await response.json();
-            dispatch(updateReviewAction(updatedReview));
+            dispatch(updateReview(updatedReview));
             return updatedReview;
         }
     } catch (e) {
