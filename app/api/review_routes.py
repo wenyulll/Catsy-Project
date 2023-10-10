@@ -2,6 +2,7 @@ from flask import Blueprint, redirect, request
 from flask_login import login_required, current_user
 from app.models import Product, Review, db
 from app.forms.review_form import ReviewForm
+# from sqlalchemy.orm import joinedload, subqueryload
 
 reviews = Blueprint("reviews", __name__)
 
@@ -24,8 +25,10 @@ def validation_errors_to_error_messages(validation_errors):
 @reviews.route("")
 def get_all_reviews():
     reviews = Review.query.all()
+    # reviews = Review.query.options(subqueryload(Review.users)).all()
 
     review_list = [review.to_dict() for review in reviews]
+    print('review_list', review_list)
     return review_list
 
 
@@ -44,8 +47,9 @@ def get_single_review(id):
         return {"error": "Review not found"}, 404
 
 
-@reviews.route("/new", methods=["POST"])
-def new_review():
+@reviews.route("products/<int:id>", methods=["POST"])
+def new_review(id):
+    # print("New Review Route Hit")
     form = ReviewForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
@@ -53,8 +57,9 @@ def new_review():
 
         new_review = Review(
             rating=form.data['rating'],
-            reivew=form.data['review'],
-            userId=current_user.id
+            review=form.data['review'],
+            userId=current_user.id,
+            productId=id
         )
 
         db.session.add(new_review)

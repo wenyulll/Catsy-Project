@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductForm from './index';
+import ProductForm from '.';
 
 const CreateForm = () => {
     let product = {}
