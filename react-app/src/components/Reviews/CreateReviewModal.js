@@ -4,7 +4,7 @@ import { useModal } from "../../context/Modal";
 import { createReviewThunk } from "../../store/review";
 import { loadProductThunk } from "../../store/product";
 import ReviewRating from "./ReviewRating"
-import './CreateReviewModa.css'
+import './CreateReviewModal.css'
 
 function CreateReviewModal({ productReview, className }) {
     const dispatch = useDispatch();
@@ -22,6 +22,15 @@ function CreateReviewModal({ productReview, className }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setErrors({});
+
+        if (stars < 1) {
+            setErrors({ ...errors, 'stars': 'Please give a star rating' });
+            return;
+        }
+        if (review.length < 10) {
+            setErrors({ ...errors, 'review': 'Review text must be more than 10 letters' });
+            return;
+        }
 
         const newReview = await dispatch(createReviewThunk({ ...productReview, stars, review }))
         if (newReview) {
@@ -54,7 +63,8 @@ function CreateReviewModal({ productReview, className }) {
                     <ReviewRating stars={stars} disabled={false} onChange={onChange} />
                 </div>
                 <div className='errors'>{errors.stars}</div>
-                <button id={(stars < 1 || review.length < 10) ? 'disabled-submit-review-button' : 'enabled-submit-review-button'} disabled={stars < 1 || review.length < 10} onClick={handleSubmit}>Submit Your Review</button>
+                <button id='enabled-submit-review-button' onClick={handleSubmit}>Submit Your Review</button>
+                {/* <button id={(stars < 1 || review.length < 10) ? 'disabled-submit-review-button' : 'enabled-submit-review-button'} disabled={stars < 1 || review.length < 10} onClick={handleSubmit}>Submit Your Review</button> */}
             </div>
         </div>
     )

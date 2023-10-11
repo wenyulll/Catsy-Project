@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useModal } from '../../context/Modal'
 import { deleteReviewThunk } from '../../store/review';
 import { loadProductThunk } from '../../store/product'
+import './DeleteReviewModal.css'
 
 
 function DeleteReviewModal({ reviewId, productId }) {

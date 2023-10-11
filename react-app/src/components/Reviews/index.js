@@ -58,8 +58,8 @@ const ReviewIndex = ({ product }) => {
         <div className='product-reviews-index'>
             <div className='reviews-header'>
                 <h3>
-                    {/* <i className='fa fa-star' /> {(productReviews.length) > 0 ? productReviews.length === 1 ? `${Number(avgStarRating).toFixed(1)} · ${productReviews.length} review` : `${Number(avgStarRating).toFixed(1)} · ${productReviews.length} reviews` : SubmitProductReviewButton ? 'Be the first to post the review!' : 'No review yet'} */}
-                    <i className='fa fa-star' />  {(productReviews.length) > 0 ? productReviews.length === 1 ? `${productReviews.length} review` : `${productReviews.length} reviews` : SubmitProductReviewButton ? 'Be the first to post the review!' : 'No review yet'}
+                    <i className='fa fa-star' /> {(productReviews.length) > 0 ? productReviews.length === 1 ? `${Number(avgStarRating).toFixed(1)} · ${productReviews.length} review` : `${Number(avgStarRating).toFixed(1)} · ${productReviews.length} reviews` : SubmitProductReviewButton ? 'Be the first to post the review!' : 'No review yet'}
+                    {/* <i className='fa fa-star' />  {(productReviews.length) > 0 ? productReviews.length === 1 ? `${productReviews.length} review` : `${productReviews.length} reviews` : SubmitProductReviewButton ? 'Be the first to post the review!' : 'No review yet'} */}
 
                 </h3>
             </div>

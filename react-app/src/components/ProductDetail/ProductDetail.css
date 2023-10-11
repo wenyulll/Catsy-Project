@@ -40,13 +40,9 @@
 
 .product-name-image h2 {
     font-size: 2rem;
-    /* Adjust the size as you see fit. */
     font-weight: bold;
-    /* Making the font bold gives it a title-like appearance. */
     text-align: center;
-    /* Optional: to center-align the title. */
     margin-bottom: 10px;
-    /* Add some space below the title. */
 }
 
 .product-name-image img {
@@ -69,6 +65,8 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.2s;
+    height: 40px;
+    margin: 0px 40px;
 }
 
 .add-to-cart-button:hover {

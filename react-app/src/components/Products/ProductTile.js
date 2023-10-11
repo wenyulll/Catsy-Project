@@ -22,11 +22,11 @@ const ProductTile = ({ product, isManage }) => {
         e.stopPropagation();
 
     };
-    console.log('isManage', isManage)
+    // console.log('isManage', isManage)
 
     return (
         <div className="all-product-tiles" onClick={handleProductClick}>
-            <ul>
+            <ul className="all-product-tiles-ul">
                 <div className="product-tile-image-container">
                     <img src={product.image} alt={product.name} width="300" />
                 </div>
@@ -43,13 +43,14 @@ const ProductTile = ({ product, isManage }) => {
                     {isManage && (
                         <>
                             <button className="edit-button" onClick={handleEdit}>Edit</button>
-                            <span className='open-modal-button' onClick={handleDelete}>
-                                <OpenModalButton
-                                    buttonText='Delete'
-                                    className="delete-button"
-                                    modalComponent={<DeleteProductModal productId={product.id} />}
-                                />
-                            </span>
+                            {/* <span className='open-modal-button' onClick={handleDelete}> */}
+                            <OpenModalButton
+                                buttonText='Delete'
+                                className="delete-button open-modal-button"
+                                onClick={handleDelete}
+                                modalComponent={<DeleteProductModal productId={product.id} />}
+                            />
+                            {/* </span> */}
                         </>
                     )}
                 </div>

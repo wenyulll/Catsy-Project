@@ -4,6 +4,8 @@ import DeleteReviewModal from './DeleteReviewModal';
 import UpdateReviewModal from './UpdateReviewModal';
 import OpenModalButton from '../OpenModalButton';
 import cathead from './cathead.png'
+import './ReviewsIndexItem.css'
+
 function ReviewIndexItem({ review }) {
     const productId = review.productId;
     const sessionUser = useSelector((state) => state.session.user);
