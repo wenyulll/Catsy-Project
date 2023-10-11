@@ -43,7 +43,7 @@
   background-color: #f5f5f5;
   cursor: pointer;
   border: none;
-  position: absolute;
+  /* position: absolute; */
   right: 0;
   width: 10%;
   border-radius: 4px;
@@ -54,10 +54,13 @@
   gap: 15px;
   flex: 1;
   justify-content: flex-end;
+  align-items: center;
+  padding: 0px 10px;
 }
 
 .icon-profile-container {
   display: flex;
+  padding: 0px 10px;
 }
 
 .store-icon-wrapper,

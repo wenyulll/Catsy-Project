@@ -22,11 +22,11 @@ const ProductTile = ({ product, isManage }) => {
         e.stopPropagation();
 
     };
-    console.log('isManage', isManage)
+    // console.log('isManage', isManage)
 
     return (
         <div className="all-product-tiles" onClick={handleProductClick}>
-            <ul>
+            <ul className="all-product-tiles-ul">
                 <div className="product-tile-image-container">
                     <img src={product.image} alt={product.name} width="300" />
                 </div>
@@ -34,7 +34,7 @@ const ProductTile = ({ product, isManage }) => {
                     <div className="text-name">
                         {product.name}
                     </div>
-                    <div className="text-name">
+                    <div className="text-price">
                         ${product.price}
                     </div>
 
@@ -42,13 +42,15 @@ const ProductTile = ({ product, isManage }) => {
                 <div className="edit-delete-button-container">
                     {isManage && (
                         <>
-                            <button onClick={handleEdit}>Edit</button>
-                            <span className='open-modal-button' onClick={handleDelete}>
-                                <OpenModalButton
-                                    buttonText='Delete'
-                                    modalComponent={<DeleteProductModal productId={product.id} />}
-                                />
-                            </span>
+                            <button className="edit-button" onClick={handleEdit}>Edit</button>
+                            {/* <span className='open-modal-button' onClick={handleDelete}> */}
+                            <OpenModalButton
+                                buttonText='Delete'
+                                className="delete-button open-modal-button"
+                                onClick={handleDelete}
+                                modalComponent={<DeleteProductModal productId={product.id} />}
+                            />
+                            {/* </span> */}
                         </>
                     )}
                 </div>

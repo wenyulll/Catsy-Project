@@ -3,6 +3,8 @@ import { useSelector } from 'react-redux';
 import DeleteReviewModal from './DeleteReviewModal';
 import UpdateReviewModal from './UpdateReviewModal';
 import OpenModalButton from '../OpenModalButton';
+import cathead from './cathead.png'
+import './ReviewsIndexItem.css'
 
 function ReviewIndexItem({ review }) {
     const productId = review.productId;
@@ -42,7 +44,10 @@ function ReviewIndexItem({ review }) {
 
     return (
         <div className='reviewIndexItemContainer'>
-            <div className='reviewIndexItem-name'>{review.username}</div>
+            <div className='reviewIndexItem-name'>
+                <img alt='cat-head' className='cat-head' src={cathead} />
+                {review.username}
+            </div>
             <div className='reviewIndexItem-date'>{month} {year}</div>
             <div className='reviewIndexItem-star'>{rating_arr.map(() => (<i className='fa fa-star'></i>))}</div>
             <div className='reviewIndexItem-text'>

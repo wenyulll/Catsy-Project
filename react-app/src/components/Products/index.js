@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loadProductsThunk } from "../../store/product";
 import ProductTile from "./ProductTile";
 import "./index.css"
-
+import Welcomelogo from '../Products/Welcomelogo.png'
 const Products = () => {
     const dispatch = useDispatch();
     const products = useSelector((state) => state.products.products);
@@ -18,6 +18,7 @@ const Products = () => {
         <div>
             <div className="welcome-message">
                 {user && <h2>Welcome back, <span className="underline-text">{user.username}</span>!</h2>}
+                {/* <img alt='logo' className='Welcomelogo' src={Welcomelogo} /> */}
             </div>
 
             <div className="welecome-banner">

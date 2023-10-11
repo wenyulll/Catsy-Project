@@ -3,21 +3,30 @@
     justify-content: space-between;
     align-items: stretch;
     padding: 2% 5%;
-    gap: 1%;
-    max-width: 80%;
+    gap: 5%;
+    max-width: 65%;
     margin: 1% auto;
 }
 
+.h2 {
+    font-size: 16px;
+    font-family: Graphik Webfont
+}
+
+.product-description {
+    font-size: 16px
+}
+
 .product-detail-left-container {
-    flex: 1.6;
+    flex: 1.3;
     background: none;
-    padding: 1%;
+    padding: 3%;
 }
 
 .product-detail-right-container {
     flex: 1;
     background: none;
-    padding: 2%;
+    padding: 1%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -29,10 +38,24 @@
     align-items: center;
 }
 
+.product-name-image h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
 .product-name-image img {
     max-width: 100%;
     height: auto;
     margin-top: 3%;
+}
+
+.product-price {
+    font-size: 2rem;
+    margin-top: 10%;
+    font-weight: bold;
+
 }
 
 .add-to-cart-button {
@@ -42,6 +65,8 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.2s;
+    height: 40px;
+    margin: 0px 40px;
 }
 
 .add-to-cart-button:hover {
@@ -56,4 +81,15 @@
 
 .meet-your-sellers {
     margin-bottom: 2%;
+}
+
+.truck-icon-message {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.truck-icon {
+    height: 3em;
+    width: auto;
 }

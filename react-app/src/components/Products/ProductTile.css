@@ -3,68 +3,85 @@
     flex-direction: column;
     align-items: center;
     background-color: #fff;
-    max-width: 350px;
+    width: 350px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    padding: 10px;
 
 }
 
-
-.product-tile {
-    display: flex;
-    align-items: center;
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-
-    &:hover {
-        background-color: #f5f5f5;
-    }
+.all-product-tiles-ul {
+    padding: 0px;
 }
 
 .product-tile-image-container {
-    flex: 1;
-    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
 }
 
-.product-tile-image-container img {
+img {
     max-width: 100%;
     height: auto;
 }
 
 .product-tile-text-container {
-    flex: 2;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
-.product-tile-name {
+.text-name {
     font-weight: bold;
     font-size: 1.2rem;
+    margin-bottom: 5px;
 }
 
-.product-tile-price {
-    margin-top: 5px;
+.text-price {
     font-size: 1rem;
 }
 
-.product-tile-buttons {
-    flex: 1;
+.edit-delete-button-container {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    flex: 1fr 1fr;
+    justify-content: center;
+    width: 100%;
+    /* margin-top: 10px; */
+    margin: 5px;
+    height: 40px;
 }
 
-.product-tile-edit {
+.edit-button,
+.delete-button {
+    padding: 5px 10px;
+    margin: 0px 5px;
+    box-sizing: border-box;
+    width: 40%;
+}
+
+.edit-button {
+    background-color: #3fa27a;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: #76DAB9;
+    }
+}
+
+.delete-button {
     background-color: #ff8c00;
     color: #fff;
     border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    margin-bottom: 5px;
+    border-radius: 8px;
     cursor: pointer;
-}
+    transition: background-color 0.3s ease;
 
-.product-tile-delete {
-    text-align: right;
+    &:hover {
+        background-color: #cc7000;
+    }
 }

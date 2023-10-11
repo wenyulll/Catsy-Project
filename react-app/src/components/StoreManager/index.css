@@ -8,6 +8,8 @@
  .add-listing {
      text-align: right;
      margin-bottom: 20px;
+     margin-right: 7%;
+     margin-top: 15px;
  }
 
  .add-listing button {

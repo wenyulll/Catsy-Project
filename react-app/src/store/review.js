@@ -122,6 +122,7 @@ export const updateReviewThunk = (reviewData) => async (dispatch) => {
         }
     } catch (e) {
         console.error("Error updating review:", e);
+        return e;
     }
 }
 
