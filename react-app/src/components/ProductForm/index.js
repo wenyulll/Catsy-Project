@@ -10,7 +10,9 @@ const ProductForm = ({ product, formType }) => {
 
     const [name, setName] = useState(product.name);
     const [price, setPrice] = useState(product.price);
-    const [image, setImage] = useState(product.image);
+    // const [image, setImage] = useState(product.image);
+    const [image, setImage] = useState(null);
+    const [imageLoading, setImageLoading] = useState(false);
     const [category, setCategory] = useState(product.category);
     const [description, setDescription] = useState(product.description);
     const [quantity, setQuantity] = useState(product.quantity);
@@ -145,6 +147,10 @@ const ProductForm = ({ product, formType }) => {
                     onChange={(e) => setImage(e.target.value)}
                 />
             </div>
+            <div>
+
+            </div>
+
 
             <div className='product-form-category'>
                 <label>Category</label>

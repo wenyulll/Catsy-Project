@@ -2,6 +2,7 @@ from flask import Blueprint, request, redirect
 from flask_login import login_required, current_user
 from app.models import Product, Review, db
 from app.forms.product_form import ProductForm
+from aws_helpers import upload_file_to_s3, get_unique_filename, remove_file_from_s3
 
 products = Blueprint("products", __name__)
 
@@ -66,26 +67,43 @@ def get_single_product(id):
 
 
 @products.route("/new", methods=["POST"])
+@login_required
 def new_product():
     form = ProductForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
+        # Assuming the image file is part of the submitted form data.
+        image = request.files['image']
+
+        if image:  # Check if an image file is submitted with the form.
+            image.filename = get_unique_filename(image.filename)
+            # Upload file to S3 and retrieve the response.
+            upload = upload_file_to_s3(image)
+
+            if "url" not in upload:
+                # Handle the case where the image upload encountered an issue.
+                return {"errors": ["Image upload failed: " + str(upload)]}, 400
+            image_url = upload["url"]  # Get the URL of the uploaded image.
+        else:
+            # You might want to handle this differently if an image is required.
+            image_url = None
 
         new_product = Product(
             name=form.data['name'],
             price=form.data['price'],
-            image=form.data['image'],
+            image=image_url,  # Save the image URL to your database.
             category=form.data['category'],
             description=form.data['description'],
             quantity=form.data['quantity'],
+            # Assuming the user is logged in and their info is available.
             userId=current_user.id
         )
 
         db.session.add(new_product)
         db.session.commit()
         return new_product.to_dict(), 201
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 
 @products.route("/update/<int:id>", methods=["PUT"])
