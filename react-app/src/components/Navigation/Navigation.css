@@ -54,6 +54,8 @@
   gap: 15px;
   flex: 1;
   justify-content: flex-end;
+  /* align-items: center;
+  padding: 0px 10px; */
 }
 
 .icon-profile-container {

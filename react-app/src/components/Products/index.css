@@ -34,6 +34,12 @@
     margin-bottom: 20px;
 }
 
+.Welcomelogo {
+    height: 1.5em;
+    width: auto;
+    vertical-align: middle;
+}
+
 .map-all-products ul {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));

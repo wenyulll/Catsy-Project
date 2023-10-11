@@ -59,3 +59,28 @@ button {
 
 
 }
+
+.reviewIndexItemContainer {
+    border-bottom: 1px solid #d3d3d3;
+
+}
+
+.reviewIndexItemContainer {
+    padding: 10px;
+}
+
+.reviewIndexItem-name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+}
+
+.cat-head {
+    width: 28px;
+    height: 25px;
+    border-radius: 50%;
+    object-fit: cover;
+
+}

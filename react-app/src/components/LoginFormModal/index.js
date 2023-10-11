@@ -43,7 +43,7 @@ function LoginFormModal() {
         <label>
           Email
           <input
-            type="text"
+            type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -59,7 +59,7 @@ function LoginFormModal() {
           />
         </label>
         <button className='handle-sumbit' type="submit">Log In</button>
-        <div className="handle-demo-submit" onClick={handleDemoSubmit}>Demo</div>
+        <button className="handle-demo-submit" onClick={handleDemoSubmit}>Demo</button>
       </form>
     </>
   );

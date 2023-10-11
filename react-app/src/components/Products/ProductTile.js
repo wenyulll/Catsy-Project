@@ -34,7 +34,7 @@ const ProductTile = ({ product, isManage }) => {
                     <div className="text-name">
                         {product.name}
                     </div>
-                    <div className="text-name">
+                    <div className="text-price">
                         ${product.price}
                     </div>
 
@@ -42,10 +42,11 @@ const ProductTile = ({ product, isManage }) => {
                 <div className="edit-delete-button-container">
                     {isManage && (
                         <>
-                            <button onClick={handleEdit}>Edit</button>
+                            <button className="edit-button" onClick={handleEdit}>Edit</button>
                             <span className='open-modal-button' onClick={handleDelete}>
                                 <OpenModalButton
                                     buttonText='Delete'
+                                    className="delete-button"
                                     modalComponent={<DeleteProductModal productId={product.id} />}
                                 />
                             </span>

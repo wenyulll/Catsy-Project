@@ -1,4 +1,4 @@
-.all-product-tiles {
+/* .all-product-tiles {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -67,4 +67,96 @@
 
 .product-tile-delete {
     text-align: right;
+} */
+
+.all-product-tiles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    width: 350px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    padding: 10px;
+
+    /* &:hover {
+        background-color: #f5f5f5;
+    } */
+}
+
+
+.product-tile-image-container {
+    margin: 10px 0;
+}
+
+.product-tile-image-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+.product-tile-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.text-name {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.text-price {
+    font-size: 1rem;
+}
+
+.edit-delete-button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.edit-button,
+.delete-button {
+    flex: 1;
+    /* Ensures buttons take up equal space */
+    padding: 5px 10px;
+    margin: 0 5px;
+    box-sizing: border-box;
+    /* Ensures padding and border are included in the width */
+    width: 48%;
+    /* To account for the margin, using less than half the container width */
+}
+
+.edit-button {
+    background-color: #98FFDA;
+    /* Mint Blue color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: #76DAB9;
+    }
+}
+
+.delete-button {
+    background-color: #ff8c00;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: #cc7000;
+    }
+}
+
+.open-modal-button {
+    display: inline-block;
 }
