@@ -55,3 +55,70 @@
 .underline-text {
     text-decoration: underline;
 }
+
+.product-title {
+    height: 40px;
+    /* adjust based on your design */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.product-image {
+    width: 100%;
+    /* or a fixed value, adjust as needed */
+    height: 200px;
+    /* adjust as needed */
+    object-fit: cover;
+    /* this will cover the whole space with the image, cropping if needed */
+}
+
+/* ... other styles ... */
+
+.map-all-products ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    /* this sets each item to take up at least 250px and as much space as available otherwise */
+    gap: 20px;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.map-all-products li {
+    /* assuming each product is an <li> element */
+    display: flex;
+    flex-direction: column;
+    /* stack child elements (image, title) vertically */
+    align-items: stretch;
+    /* make children fill the li */
+    border: 1px solid #ddd;
+    /* just to visualize the tile, remove if not needed */
+    padding: 10px;
+    /* space inside each product tile */
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    /* makes sure images cover the area without distorting aspect ratio */
+    margin-bottom: 10px;
+    /* space between image and title */
+}
+
+.product-title {
+    height: 40px;
+    /* fixed height ensures consistency */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* prevents long names from breaking layout */
+    text-align: center;
+    /* centers the product title */
+    margin: 0;
+    /* remove default margins */
+}
+
+/* ... other styles ... */
