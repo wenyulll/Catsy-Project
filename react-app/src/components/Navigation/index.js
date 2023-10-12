@@ -4,6 +4,11 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import Catsylogo from './Catsylogo.png'
 import './Navigation.css';
+import SearchResults from '../Search/searchResult';
+import SearchBar from '../Search';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStore, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+
 
 function Navigation({ isLoaded }) {
 	const sessionUser = useSelector(state => state.session.user);
@@ -12,6 +17,7 @@ function Navigation({ isLoaded }) {
 		e.preventDefault();
 		alert('Feature Coming soon');
 	};
+
 	return (
 		<div className="navigation-container">
 			<div className="logo-container">
@@ -20,21 +26,21 @@ function Navigation({ isLoaded }) {
 				</NavLink>
 			</div>
 			<div className="search-container">
-				{/* <form onSubmit={handleNoFeatureSubmit}> */}
+				{/* <SearchBar /> */}
+				<SearchResults />
 				<input type="text" placeholder="Search..." className="search-input" />
 				<button type="submit" className="search-button" onClick={handleNoFeatureSubmit}>Search</button>
-				{/* </form> */}
 			</div>
 			<div className='icon-profile-container'>
 				<div className="icon-container">
 					{sessionUser &&
 						(<div className="store-icon-wrapper">
 							<NavLink to="/products/mystore">
-								<i className="fas fa-store"> </i>
+								<FontAwesomeIcon icon={faStore} style={{ color: "black" }} />
 							</NavLink>
 						</div>)}
 					<div className="cart-icon-wrapper" onClick={handleNoFeatureSubmit}>
-						<i className="fas fa-shopping-cart"></i>
+						<FontAwesomeIcon icon={faShoppingCart} style={{ color: "black" }} />
 					</div>
 				</div>
 				<div className="profile-container">

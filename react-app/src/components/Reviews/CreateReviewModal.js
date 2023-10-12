@@ -23,14 +23,21 @@ function CreateReviewModal({ productReview, className }) {
         e.preventDefault();
         setErrors({});
 
+
         if (stars < 1) {
-            setErrors({ ...errors, 'stars': 'Please give a star rating' });
+            setErrors(prevErrors => ({ ...prevErrors, 'stars': 'Please give a star rating' }));
             return;
         }
+
         if (review.length < 10) {
-            setErrors({ ...errors, 'review': 'Review text must be more than 10 letters' });
+            setErrors(prevErrors => ({ ...prevErrors, 'review': 'Review text must be at least 10 characters long' }));
+            return;
+        } else if (review.length > 100) {
+            setErrors(prevErrors => ({ ...prevErrors, 'review': 'Review text must be no more than 100 characters long' }));
             return;
         }
+
+
 
         const newReview = await dispatch(createReviewThunk({ ...productReview, stars, review }))
         if (newReview) {

@@ -1,3 +1,5 @@
+from .config import Config
+from .seeds import seed_commands
 import os
 from flask import Flask, render_template, request, session, redirect
 from flask_cors import CORS
@@ -9,8 +11,7 @@ from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.product_routes import products
 from .api.review_routes import reviews
-from .seeds import seed_commands
-from .config import Config
+from .api.search_routes import search
 
 app = Flask(__name__, static_folder='../react-app/build', static_url_path='/')
 
@@ -32,6 +33,7 @@ app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(products, url_prefix='/api/products')
 app.register_blueprint(reviews, url_prefix='/api/reviews')
+app.register_blueprint(search, url_prefix='/api/search')
 db.init_app(app)
 Migrate(app, db)
 

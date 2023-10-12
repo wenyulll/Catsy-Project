@@ -11,6 +11,8 @@ import ProductForm from "./components/ProductForm";
 import StoreManager from "./components/StoreManager";
 import CreateForm from "./components/ProductForm/CreateProduct";
 import UpdateForm from "./components/ProductForm/UpdateProduct";
+import SearchBar from "./components/Search";
+import SearchResults from "./components/Search/searchResult";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,6 +34,9 @@ function App() {
           </Route>
           <Route exact path="/">
             <Products />
+          </Route>
+          <Route exact path="/search/searchItem" >
+            <SearchResults />
           </Route>
           <Route exact path="/products/mystore">
             <StoreManager />
