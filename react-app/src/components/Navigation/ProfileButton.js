@@ -43,34 +43,37 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button className="profile-button" onClick={openMenu}>
-        <i className="fas fa-user-circle" />
-      </button>
-      <ul className={ulClassName} ref={ulRef}>
-        {user ? (
-          <>
-            <ul>{user.username}</ul>
-            <ul>{user.email}</ul>
-            <ul>
-              <button onClick={handleLogout}>Log Out</button>
-            </ul>
-          </>
-        ) : (
-          <>
-            <OpenModalButton
-              buttonText="Log In"
-              onItemClick={closeMenu}
-              modalComponent={<LoginFormModal />}
-            />
-
-            <OpenModalButton
-              buttonText="Sign Up"
-              onItemClick={closeMenu}
-              modalComponent={<SignupFormModal />}
-            />
-          </>
-        )}
-      </ul>
+      <div className="profile-button-container">
+        <button className="profile-button" onClick={openMenu}>
+          <i className="fas fa-user-circle" />
+        </button>
+        <div className="dropdown-container">
+          <ul className={ulClassName} ref={ulRef}>
+            {user ? (
+              <div className="loggedin-dropdown-container">
+                <ul>{user.username}</ul>
+                <ul>{user.email}</ul>
+                <ul>
+                  <button onClick={handleLogout}>Log Out</button>
+                </ul>
+              </div>
+            ) : (
+              <div className="openmodal-buttons">
+                <OpenModalButton
+                  buttonText="Log In"
+                  onItemClick={closeMenu}
+                  modalComponent={<LoginFormModal />}
+                />
+                <OpenModalButton
+                  buttonText="Sign Up"
+                  onItemClick={closeMenu}
+                  modalComponent={<SignupFormModal />}
+                />
+              </div>
+            )}
+          </ul>
+        </div>
+      </div>
     </>
   );
 }

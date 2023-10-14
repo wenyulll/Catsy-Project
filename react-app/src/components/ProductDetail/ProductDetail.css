@@ -8,6 +8,7 @@
     margin: 1% auto;
 }
 
+
 .h2 {
     font-size: 16px;
     font-family: Graphik Webfont
@@ -16,6 +17,11 @@
 .product-description {
     font-size: 16px
 }
+
+/* .product-description p {
+    font-size: larger;
+    font-weight: bold;
+} */
 
 .product-detail-left-container {
     flex: 1.3;

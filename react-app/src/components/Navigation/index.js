@@ -25,12 +25,12 @@ function Navigation({ isLoaded }) {
 					<img alt='logo' className='catsy-logo' src={Catsylogo} />
 				</NavLink>
 			</div>
-			<div className="search-container">
-				{/* <SearchBar /> */}
+			{/* <div className="search-container">
+
 				<SearchResults />
 				<input type="text" placeholder="Search..." className="search-input" />
 				<button type="submit" className="search-button" onClick={handleNoFeatureSubmit}>Search</button>
-			</div>
+			</div> */}
 			<div className='icon-profile-container'>
 				<div className="icon-container">
 					{sessionUser &&
