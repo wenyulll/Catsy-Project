@@ -11,7 +11,22 @@
 h1 {
     display: flex;
     justify-content: center;
+}
+
+.sumbit-demo-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+
+
+.sumbit-demo-buttons button {
     margin-bottom: 20px;
+}
+
+.login-form-container {
+    margin: 0%
 }
 
 form {
@@ -19,9 +34,10 @@ form {
     flex-direction: column;
     width: 400px;
     padding: 20px;
-    margin: auto;
+    /* margin: auto; */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    margin-bottom: 10px;
 }
 
 .enabled {

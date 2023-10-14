@@ -60,15 +60,18 @@ const ProductDetail = () => {
                             ))}
                         </select>
                     </div>
-                    <div className="product-description">Details:{product.description}</div>
-                    <button className="add-to-cart-button" onClick={handleAddToCart}>Add to Cart</button>
+                    <div className="product-description">
+                        <p>Details:</p>
+                        {product.description}
+                    </div>
+                    {/* <button className="add-to-cart-button" onClick={handleAddToCart}>Add to Cart</button> */}
                     <div className="truck-icon-message">
                         <img alt='truck-icon' className='truck-icon' src={truckicon} />
                         Enjoy free shipping to the US when you spend $35+.
                     </div>
                     <div className="product-owners">
-                        <div className="meet-your-sellers"> Meet your sellers </div>
-                        <div className="owner-name">{product.userId}</div>
+                        {/* <div className="meet-your-sellers"> Meet your sellers </div> */}
+                        {/* <div className="owner-name">{product.userId}</div> */}
                     </div>
                 </div>
             </div>
