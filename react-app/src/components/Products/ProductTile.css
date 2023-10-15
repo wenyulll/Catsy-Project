@@ -85,3 +85,29 @@ img {
         background-color: #cc7000;
     }
 } */
+
+.product-tile-image-container img {
+    max-height: 300px;
+    height: 300px;
+}
+
+.map-all-products ul {
+    padding: 5px;
+}
+
+.product-tile-image-container {
+    display: flex;
+    justify-content: center;
+}
+
+.text-name {
+    font-weight: bold;
+}
+
+.all-product-tiles:hover {
+    cursor: pointer;
+}
+
+.edit-button {
+    margin-right: 5px;
+}

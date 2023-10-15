@@ -36,4 +36,5 @@ class Product(db.Model):
             'createdAt': self.createdAt,
             'updatedAt': self.updatedAt,
             'userId': self.userId,
+            'username': self.users.username,
         }

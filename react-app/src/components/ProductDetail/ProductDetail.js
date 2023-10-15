@@ -27,7 +27,7 @@ const ProductDetail = () => {
         console.log(`${product.name} added to cart!`);
     };
 
-    console.log('product.userId', product.userId)
+    console.log('product.userId', product)
     return (
         <>
             <div className="product-detail">
@@ -70,8 +70,8 @@ const ProductDetail = () => {
                         Enjoy free shipping to the US when you spend $35+.
                     </div>
                     <div className="product-owners">
-                        {/* <div className="meet-your-sellers"> Meet your sellers </div> */}
-                        {/* <div className="owner-name">{product.userId}</div> */}
+                        <div className="meet-your-sellers"> Meet your sellers </div>
+                        <div className="owner-name">{product.username}</div>
                     </div>
                 </div>
             </div>
