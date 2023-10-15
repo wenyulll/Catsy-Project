@@ -30,11 +30,13 @@ const StoreManager = () => {
                 </Link>
             </div>
             <div className='map-all-products'>
-                {userProducts && userProducts.map(product => (
-                    <div key={product.id}>
-                        <ProductTile product={product} isManage={true} />
-                    </div>
-                ))}
+                <ul>
+                    {userProducts && userProducts.map(product => (
+                        <div key={product.id}>
+                            <ProductTile product={product} isManage={true} />
+                        </div>
+                    ))}
+                </ul>
             </div>
         </div>
     );
