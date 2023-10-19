@@ -44,7 +44,7 @@ const ProductDetail = () => {
                     <div className="product-price">${product.price}</div>
                     <h2>{product.name}</h2>
                     <div className="product-category">{product.category}</div>
-                    {/* <div className="product-quantity">Quantity: {product.quantity}</div> */}
+                    <div className="product-quantity">Quantity: {product.quantity}</div>
 
                     <div className="product-quantity">
                         Quantity:
@@ -64,7 +64,7 @@ const ProductDetail = () => {
                         <p>Details:</p>
                         {product.description}
                     </div>
-                    {/* <button className="add-to-cart-button" onClick={handleAddToCart}>Add to Cart</button> */}
+                    <button className="add-to-cart-button" onClick={handleAddToCart}>Add to Cart</button>
                     <div className="truck-icon-message">
                         <img alt='truck-icon' className='truck-icon' src={truckicon} />
                         Enjoy free shipping to the US when you spend $35+.
