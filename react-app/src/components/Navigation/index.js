@@ -7,7 +7,7 @@ import './Navigation.css';
 import SearchResults from '../Search/searchResult';
 import SearchBar from '../Search';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStore, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faStore, faShoppingCart, faHeart } from '@fortawesome/free-solid-svg-icons';
 
 
 function Navigation({ isLoaded }) {
@@ -34,11 +34,20 @@ function Navigation({ isLoaded }) {
 			<div className='icon-profile-container'>
 				<div className="icon-container">
 					{sessionUser &&
-						(<div className="store-icon-wrapper">
-							<NavLink to="/products/mystore">
-								<FontAwesomeIcon icon={faStore} style={{ color: "black" }} />
-							</NavLink>
-						</div>)}
+						(
+							<>
+								<div className="store-icon-wrapper">
+									<NavLink to="/products/mystore">
+										<FontAwesomeIcon icon={faStore} style={{ color: "black" }} />
+									</NavLink>
+								</div>
+								<div className="heart-icon-wrapper">
+									<NavLink to="/favorites">
+										<FontAwesomeIcon icon={faHeart} style={{ color: "black" }} />
+									</NavLink>
+								</div>
+							</>
+						)}
 					<div className="cart-icon-wrapper" onClick={handleNoFeatureSubmit}>
 						<FontAwesomeIcon icon={faShoppingCart} style={{ color: "black" }} />
 					</div>
