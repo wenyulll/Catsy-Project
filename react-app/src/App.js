@@ -13,6 +13,9 @@ import CreateForm from "./components/ProductForm/CreateProduct";
 import UpdateForm from "./components/ProductForm/UpdateProduct";
 import SearchBar from "./components/Search";
 import SearchResults from "./components/Search/searchResult";
+import ShoppingCart from "./components/ShoppingCart";
+import OrderDetail from "./components/OrderDetail";
+import OrderPage from "./components/OrderPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -50,7 +53,20 @@ function App() {
           <Route exact path="/products/:productId">
             <ProductDetail />
           </Route>
+          <Route exact path="/shopping_cart">
+            <ShoppingCart />
+          </Route>
+          <Route exact path="/order/:orderId">
+            <OrderDetail />
+          </Route>
+          <Route exact path="/orders">
+            <OrderPage />
+          </Route>
+          <Route exact path="/search">
+            <SearchResults />
+          </Route>
 
+          
         </Switch>
       )}
     </>

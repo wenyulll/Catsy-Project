@@ -12,6 +12,8 @@ from .api.auth_routes import auth_routes
 from .api.product_routes import products
 from .api.review_routes import reviews
 from .api.search_routes import search
+from .api.shopping_cart_routes import shopping_cart
+from .api.order_routes import order
 
 app = Flask(__name__, static_folder='../react-app/build', static_url_path='/')
 
@@ -34,6 +36,8 @@ app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(products, url_prefix='/api/products')
 app.register_blueprint(reviews, url_prefix='/api/reviews')
 app.register_blueprint(search, url_prefix='/api/search')
+app.register_blueprint(shopping_cart, url_prefix='/api/shopping_cart')
+app.register_blueprint(order, url_prefix='/api/order')
 db.init_app(app)
 Migrate(app, db)
 

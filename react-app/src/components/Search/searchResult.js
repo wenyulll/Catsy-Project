@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { searchProductsThunk } from '../../store/search';
 import { useHistory, useParams } from 'react-router-dom';
 import ProductTile from '../Products/ProductTile';
+import './searchResult.css'
 
 
 const SearchResults = () => {
@@ -24,15 +25,13 @@ const SearchResults = () => {
 
     return (
         <div>
-            {products && products.map(product => (
-
-
-                <ProductTile
-                    key={product.id}
-                    product={product}
-                    onClick={() => handleProductClick(product.id)}
-                />
-            ))}
+            <div className="map-all-products">
+                <ul>
+                    {products && Object.values(products).map(product => (
+                        <ProductTile key={product.id} product={product} isManage={false} />
+                    ))}
+                </ul>
+            </div>
         </div>
     );
 }

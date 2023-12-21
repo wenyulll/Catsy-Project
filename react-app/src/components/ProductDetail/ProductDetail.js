@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { loadProductThunk } from "../../store/product";
+import { addToCartThunk } from "../../store/shoppingCart";
 import './ProductDetail.css';
 import ReviewIndex from "../Reviews";
 import ReviewRating from "../Reviews/ReviewRating"
@@ -14,6 +15,9 @@ const ProductDetail = () => {
     // const product = useSelector((state) => state.products.products);
     const [quantity, setQuantity] = useState(1);
     const product = useSelector((state) => state.products.products[productId]);
+    const sessionUser = useSelector((state) => state.session.user);
+    const cart = useSelector((state) => state.shoppingCart.items);
+    console.log('cartcartcartcartcartcartcart', cart)
 
     useEffect(() => {
         dispatch(loadProductThunk(productId));
@@ -24,10 +28,28 @@ const ProductDetail = () => {
     }
 
     const handleAddToCart = () => {
-        console.log(`${product.name} added to cart!`);
+        // console.log(`${product.name} added to cart!`);
+        if (!sessionUser) {
+            alert("Please login first");
+            return;
+        }
+
+        if (sessionUser.id != product.userId) {
+            return;
+        }
+
+        if (productId in cart) {
+            alert("Product in cart already!")
+            return;
+        }
+
+        dispatch(addToCartThunk(productId, parseInt(quantity)));
+
     };
 
     console.log('product.userId', product)
+    const isAddToCartButtonDisabled = sessionUser && sessionUser.id !== product.userId
+
     return (
         <>
             <div className="product-detail">
@@ -64,7 +86,7 @@ const ProductDetail = () => {
                         <p>Details:</p>
                         {product.description}
                     </div>
-                    <button className="add-to-cart-button" onClick={handleAddToCart}>Add to Cart</button>
+                    <button className={`${isAddToCartButtonDisabled ? 'add-to-cart-button-disabled' : 'add-to-cart-button'}`} onClick={handleAddToCart}>Add to Cart</button>
                     <div className="truck-icon-message">
                         <img alt='truck-icon' className='truck-icon' src={truckicon} />
                         Enjoy free shipping to the US when you spend $35+.

@@ -18,6 +18,10 @@ class User(db.Model, UserMixin):
         "Product", back_populates="users", cascade="all,delete")
     reviews = db.relationship(
         "Review", back_populates="users", cascade="all,delete")
+    orders = db.relationship(
+        "Order", back_populates="users", cascade="all,delete")
+    shopping_cart_items = db.relationship(
+        "ShoppingCartItem", back_populates="users", cascade="all,delete")
 
     @property
     def password(self):

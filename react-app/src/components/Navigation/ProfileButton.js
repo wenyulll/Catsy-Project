@@ -6,6 +6,8 @@ import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import './ProfileButton.css'
+import { clearCartThunk } from "../../store/shoppingCart";
+
 function ProfileButton({ user }) {
   const history = useHistory();
   const dispatch = useDispatch();
@@ -33,6 +35,7 @@ function ProfileButton({ user }) {
 
   const handleLogout = (e) => {
     e.preventDefault();
+    dispatch(clearCartThunk())
     dispatch(logout());
     setShowMenu(false);
     history.push(`/`);

@@ -3,6 +3,7 @@ import { login } from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import './LoginForm.css';
+import { loadCartThunk } from "../../store/shoppingCart";
 
 function LoginFormPage() {
   const dispatch = useDispatch();
@@ -19,6 +20,9 @@ function LoginFormPage() {
     if (data) {
       setErrors(data);
     }
+    else{
+      dispatch(loadCartThunk())
+    }
   };
 
   const handleDemoSubmit = async (e) => {
@@ -26,6 +30,9 @@ function LoginFormPage() {
     const data = await dispatch(login('demo@aa.io', 'password'));
     if (data) {
       setErrors(data);
+    }
+    else{
+      dispatch(loadCartThunk())
     }
   };
 
