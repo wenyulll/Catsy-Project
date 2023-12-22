@@ -44,7 +44,7 @@ export const addToCartThunk = (productId, quantity) => async (dispatch) => {
 
         if (response.ok) {
             const item = await response.json();
-            console.log('itemitemitemitemitemitemitemitem',item)
+            console.log('itemitemitemitemitemitemitemitem', item)
             dispatch(addToCart(item));
             return item;
         }
@@ -54,9 +54,9 @@ export const addToCartThunk = (productId, quantity) => async (dispatch) => {
     }
 }
 
-export const removeFromCartThunk = (productId) => async (dispatch) => {
+export const removeFromCartThunk = (id) => async (dispatch) => {
     try {
-        const response = await fetch(`/api/shopping_cart/${productId}`, {
+        const response = await fetch(`/api/shopping_cart/${id}`, {
             method: 'DELETE',
             headers: { "Content-Type": "application/json" },
         });
@@ -81,7 +81,7 @@ export const loadCartThunk = () => async (dispatch) => {
 
         if (response.ok) {
             const items = await response.json();
-            console.log('itemitemitemitemitemitemitemitem',items['shopping_cart_items'])
+            console.log('itemitemitemitemitemitemitemitem', items['shopping_cart_items'])
             dispatch(loadCart(items['shopping_cart_items']));
             return items;
         }
@@ -103,13 +103,13 @@ const cartReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_TO_CART: {
             const { item } = action.payload;
-            console.log('=============',item)
+            console.log('=============', item)
             const productId = item['productId']
             return {
                 ...state,
                 items: {
                     ...state.items,
-                    [productId]: {...item}
+                    [productId]: { ...item }
                 }
             };
         }
@@ -125,12 +125,12 @@ const cartReducer = (state = initialState, action) => {
         case LOAD_CART: {
             const items = {};
             for (const el of action.payload['items']) {
-                items[el.id]={...el};
+                items[el.id] = { ...el };
             }
-            return {items:items}
+            return { items: items }
         }
         case CLEAR_CART: {
-            return {items: {}}
+            return { items: {} }
         }
         default:
             return state;

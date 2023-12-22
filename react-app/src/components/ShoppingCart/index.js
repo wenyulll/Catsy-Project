@@ -2,27 +2,39 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { removeFromCartThunk, clearCartThunk } from "../../store/shoppingCart";
-import {addOrderThunk, addOrderItemThunk} from "../../store/order";
+import { addOrderThunk, addOrderItemThunk } from "../../store/order";
 import './ShoppingCart.css';
 
 const ShoppingCart = () => {
     const cart = useSelector((state) => state.shoppingCart.items);
     const dispatch = useDispatch();
-    const history =  useHistory();
+    const history = useHistory();
 
     const handleDelete = async (productId) => {
-        await dispatch(removeFromCartThunk(productId));
+
+        let itemId = null;
+        for (let id in cart) {
+            console.log('id', cart[id].productId)
+            if (cart[id].productId == productId) {
+                itemId = cart[id].id;
+                break;
+            }
+        }
+        console.log(itemId)
+        console.log(cart)
+        console.log(productId)
+        await dispatch(removeFromCartThunk(itemId));
     };
 
     const handlePlaceOrder = async () => {
         // history.push('/order-confirmation');
-        const id=await dispatch(addOrderThunk())
+        const id = await dispatch(addOrderThunk())
         for (const el in cart) {
-            dispatch(addOrderItemThunk(id,cart[el].productId,cart[el].quantity))
+            dispatch(addOrderItemThunk(id, cart[el].productId, cart[el].quantity))
         }
         dispatch(clearCartThunk())
         history.push(`/order/${id}`);
-        
+
     };
 
     return (
@@ -50,7 +62,7 @@ const ShoppingCart = () => {
                     );
                 })}
             </ul>
-            {Object.keys(cart).length!==0 && (<button onClick={handlePlaceOrder} className="order-button">Place Order</button>)}
+            {Object.keys(cart).length !== 0 && (<button onClick={handlePlaceOrder} className="order-button">Place Order</button>)}
         </div>
     );
 };
