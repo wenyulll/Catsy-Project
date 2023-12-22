@@ -14,15 +14,15 @@ const ShoppingCart = () => {
 
         let itemId = null;
         for (let id in cart) {
-            console.log('id', cart[id].productId)
+            // console.log('id', cart[id].productId)
             if (cart[id].productId == productId) {
                 itemId = cart[id].id;
                 break;
             }
         }
-        console.log(itemId)
-        console.log(cart)
-        console.log(productId)
+        // console.log(itemId)
+        // console.log(cart)
+        // console.log(productId)
         await dispatch(removeFromCartThunk(itemId));
     };
 
