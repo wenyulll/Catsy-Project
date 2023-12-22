@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { removeFromCartThunk, clearCartThunk } from "../../store/shoppingCart";
+import { removeFromCartThunk } from "../../store/shoppingCart";
 import { addOrderThunk, addOrderItemThunk } from "../../store/order";
 import './ShoppingCart.css';
 
@@ -29,10 +29,16 @@ const ShoppingCart = () => {
     const handlePlaceOrder = async () => {
         // history.push('/order-confirmation');
         const id = await dispatch(addOrderThunk())
+        console.log('id', id)
+        console.log('cart', cart)
         for (const el in cart) {
-            dispatch(addOrderItemThunk(id, cart[el].productId, cart[el].quantity))
+            console.log('el', el)
+            await dispatch(addOrderItemThunk(id, cart[el].productId, cart[el].quantity))
         }
-        dispatch(clearCartThunk())
+        for (const el in cart) {
+            console.log('el', el)
+            dispatch(removeFromCartThunk(cart[el].id))
+        }
         history.push(`/order/${id}`);
 
     };
