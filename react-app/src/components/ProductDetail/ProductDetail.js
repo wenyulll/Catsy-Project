@@ -34,7 +34,7 @@ const ProductDetail = () => {
             return;
         }
 
-        if (sessionUser.id != product.userId) {
+        if (sessionUser.id === product.userId) {
             return;
         }
 
@@ -47,8 +47,11 @@ const ProductDetail = () => {
 
     };
 
-    console.log('product.userId', product)
-    const isAddToCartButtonDisabled = sessionUser && sessionUser.id !== product.userId
+    console.log('product.userId', product.userId)
+    console.log('sessionUser.id', sessionUser.id)
+    const isAddToCartButtonDisabled = sessionUser && (sessionUser.id === product.userId)
+    console.log('isAddToCartButtonDisabled', isAddToCartButtonDisabled)
+
 
     return (
         <>
