@@ -17,7 +17,7 @@ const ProductDetail = () => {
     const product = useSelector((state) => state.products.products[productId]);
     const sessionUser = useSelector((state) => state.session.user);
     const cart = useSelector((state) => state.shoppingCart.items);
-    console.log('cartcartcartcartcartcartcart', cart)
+    // console.log('cartcartcartcartcartcartcart', cart)
 
     useEffect(() => {
         dispatch(loadProductThunk(productId));
@@ -47,8 +47,8 @@ const ProductDetail = () => {
 
     };
 
-    console.log('product.userId', product.userId)
-    console.log('sessionUser.id', sessionUser.id)
+    // console.log('product.userId', product.userId)
+    // console.log('sessionUser.id', sessionUser.id)
     const isAddToCartButtonDisabled = sessionUser && (sessionUser.id === product.userId)
     console.log('isAddToCartButtonDisabled', isAddToCartButtonDisabled)
 
