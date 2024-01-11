@@ -1,19 +1,20 @@
-# Fumblr - A Tumblr Clone
+# Catsy - An Etsy Inspired Shopping Flatform
 
 ## Introduction
-Fumblr is a clone of the Tumblr website, designed to replicate its core functionality. It offers a platform for users to express themselves through various content types like text, images, audio, and video.
+Catsy is an online shopping platform inspired by Etsy, specifically tailored for pet enthusiasts. It's the go-to destination for finding unique, handcrafted, and pet-related products. Whether you're looking for pet-themed accessories, home decor, or special treats for your furry friends, Catsy has it all.
 
 ## Features
 
 - **User Authentication**: Sign up and log in functionality.
-- **Create Posts**: Ability to create different types of posts including text, images, quotes, and links.
-- **Dashboard**: View and interact with posts from other users.
-- **Likes**: Users can like and unlike posts.
-- **Comments**: Leave comments on posts.
-- **Discover Content**: Explore and discover new content from other users.
+- **Product Listings**: Users can browse a wide range of pet-related products.
+- **Shopping Cart**: Seamless shopping experience with an integrated cart system.
+- **Order Management**: Users can track their orders and view purchase history.
+- **Search and Filters**: Advanced search options and filters to find the perfect products.
+- **Ratings and Reviews**: Users can rate and review products and sellers.
+
 
 ## Landing Page
-Visit our [Fumblr](#) to access the Login and Signup pages. A demo user button is available for exploring the website without signing up.
+Visit [Catsy](https://catsy-project.onrender.com) to access the Login and Signup pages. A demo user button is available for exploring the website without signing up.
 
 ## Screenshots
 - Screenshot 2023-10-25 at 4 36 23 PM
@@ -29,21 +30,8 @@ Visit our [Fumblr](#) to access the Login and Signup pages. A demo user button i
 - JavaScript
 - Python
 - Flask
-- AWS S3 Buckets
-- Docker
 - SQL
 
 ## Database Schema
 ![Database Schema](#link-to-schema-image)
 
-## Getting Started
-Instructions on how to set up the project locally.
-
-## Contributing
-Guidelines for contributing to the project.
-
-## License
-Details about the project's licensing.
-
-## Contact
-Information on how to reach out for more details or support.
