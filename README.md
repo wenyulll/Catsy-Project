@@ -1,18 +1,19 @@
 # Catsy - An Etsy Inspired Shopping Flatform
 
 Index
-About
+
 - [About](#about)
-Features List
-Landing Page
-Screenshots of Application
+- [Features List](#features-list)
+- [Landing Page](#landing-page)
+- [Screenshots of Application](#screenshots-of-application)
 - [Tech Stack](#tech-stack)
-Database Schema
+- [Database Schema](#database-schema)
 
 <a name="about"></a>
 ## About
 Catsy is an online shopping platform inspired by Etsy, specifically tailored for pet enthusiasts. It's the go-to destination for finding unique, handcrafted, and pet-related products. Whether you're looking for pet-themed accessories, home decor, or special treats for your furry friends, Catsy has it all.
 
+<a name="features-list"></a>
 ## Features
 
 - **User Authentication**: Sign up and log in functionality.
@@ -22,19 +23,20 @@ Catsy is an online shopping platform inspired by Etsy, specifically tailored for
 - **Search and Filters**: Advanced search options and filters to find the perfect products.
 - **Ratings and Reviews**: Users can rate and review products and sellers.
 
-
+<a name="landing-page"></a>
 ## Landing Page
-Visit [Catsy](https://catsy-project.onrender.com) to access the Login and Signup pages. A demo user button is available for exploring the website without signing up.
+Visit  [Catsy](https://catsy-project.onrender.com)  to access the Login and Signup pages. A demo user button is available for exploring the website without signing up.
 
+<a name="screenshots-of-application"></a>
 ## Screenshots
-- Screenshot 2023-10-25 at 4 36 23 PM
-- Screenshot 2023-10-25 at 11 10 03 PM
-- Screenshot 2023-10-25 at 11 10 20 PM
-- Screenshot 2023-10-25 at 11 10 43 PM
+
+<img width="1520" alt="Screenshot 2024-01-11 at 12 53 56" src="https://github.com/wenyulll/Catsy-Project/assets/110316470/584e89d7-5902-4106-83f7-71e6746668bd">
+<img width="1550" alt="Screenshot 2024-01-11 at 13 58 38" src="https://github.com/wenyulll/Catsy-Project/assets/110316470/70e4c1bd-192e-4116-80c0-52176d633d8d">
+<img width="748" alt="Screenshot 2024-01-11 at 13 58 54" src="https://github.com/wenyulll/Catsy-Project/assets/110316470/c62f507f-a72e-4e28-9bb4-e4fdae059ca0">
+
   
 <a name="tech-stack"></a>
 ## Tech Stack
-
 - React
 - Redux
 - HTML/CSS
@@ -44,5 +46,7 @@ Visit [Catsy](https://catsy-project.onrender.com) to access the Login and Signup
 - SQL
 
 ## Database Schema
-![Database Schema](#link-to-schema-image)
+
+![image](https://github.com/wenyulll/Catsy-Project/assets/110316470/48188b14-872d-4ff2-a613-7a4182043e23)
+
 
