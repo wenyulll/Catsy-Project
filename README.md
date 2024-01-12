@@ -1,6 +1,16 @@
 # Catsy - An Etsy Inspired Shopping Flatform
 
-## Introduction
+Index
+About
+- [About](#about)
+Features List
+Landing Page
+Screenshots of Application
+- [Tech Stack](#tech-stack)
+Database Schema
+
+<a name="about"></a>
+## About
 Catsy is an online shopping platform inspired by Etsy, specifically tailored for pet enthusiasts. It's the go-to destination for finding unique, handcrafted, and pet-related products. Whether you're looking for pet-themed accessories, home decor, or special treats for your furry friends, Catsy has it all.
 
 ## Features
@@ -21,7 +31,8 @@ Visit [Catsy](https://catsy-project.onrender.com) to access the Login and Signup
 - Screenshot 2023-10-25 at 11 10 03 PM
 - Screenshot 2023-10-25 at 11 10 20 PM
 - Screenshot 2023-10-25 at 11 10 43 PM
-
+  
+<a name="tech-stack"></a>
 ## Tech Stack
 
 - React
