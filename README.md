@@ -47,6 +47,9 @@ Visit  [Catsy](https://catsy-project.onrender.com)  to access the Login and Sign
 
 ## Database Schema
 
-![image](https://github.com/wenyulll/Catsy-Project/assets/110316470/48188b14-872d-4ff2-a613-7a4182043e23)
+<img width="1159" alt="Screenshot 2024-01-13 at 21 42 44" src="https://github.com/wenyulll/Catsy-Project/assets/110316470/03ec2dbc-f842-42fe-a12d-4834fadc54dd">
+
+
+
 
 
