@@ -42,7 +42,7 @@ function UpdateReviewModal({ productReview, className }) {
         if (updatedReview) {
             if (updatedReview.errors) {
                 setErrors(updatedReview.errors);
-                console.log('updatedReview.errors', updatedReview.errors)
+                // console.log('updatedReview.errors', updatedReview.errors)
             } else {
                 await dispatch(loadProductThunk(productReview.productId), [dispatch])
                     .then(closeModal)

@@ -54,7 +54,7 @@ const ProductDetail = () => {
 
 
     const isAddToCartButtonDisabled = sessionUser && (sessionUser.id === product.userId)
-    console.log('isAddToCartButtonDisabled', isAddToCartButtonDisabled)
+    // console.log('isAddToCartButtonDisabled', isAddToCartButtonDisabled)
 
 
     return (

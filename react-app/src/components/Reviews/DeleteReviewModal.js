@@ -13,7 +13,7 @@ function DeleteReviewModal({ reviewId, productId }) {
     const deleteReview = async (e) => {
         e.preventDefault();
         const deletedReview = await dispatch(deleteReviewThunk(reviewId));
-        console.log('deletedReview', deletedReview);
+        // console.log('deletedReview', deletedReview);
         if (deletedReview) {
             // await dispatch(loadProductThunk(productId));
             closeModal();

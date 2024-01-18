@@ -66,7 +66,7 @@ export const getOrderDetailThunk = (id) => async (dispatch) => {
     });
     if (response.ok) {
         const order = await response.json();
-        console.log('orderorderorderorder',order)
+        // console.log('orderorderorderorder',order)
         dispatch(getOrderDetail(order));
     }
 };
@@ -94,14 +94,14 @@ const orderReducer = (state = initialState, action) => {
                 ...state,
                 currentOrderItems: {
                     ...state.currentOrderItems,
-                    [action.payload.id]: {...action.payload}
+                    [action.payload.id]: { ...action.payload }
                 }
             };
         case GET_ORDER_DETAIL:
             return {
                 ...state,
-                currentOrder: {...action.payload},
-                currentOrderItems: {...action.payload.items}
+                currentOrder: { ...action.payload },
+                currentOrderItems: { ...action.payload.items }
             }
         default:
             return state;

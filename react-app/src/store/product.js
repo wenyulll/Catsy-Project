@@ -92,7 +92,7 @@ export const createProductThunk = productData => async dispatch => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(productData),
         });
-        console.log('im response for createProductThunk', response)
+        // console.log('im response for createProductThunk', response)
         if (response.ok) {
             const data = await response.json();
             dispatch(createProduct(data));

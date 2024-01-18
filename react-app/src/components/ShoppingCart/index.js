@@ -29,14 +29,14 @@ const ShoppingCart = () => {
     const handlePlaceOrder = async () => {
         // history.push('/order-confirmation');
         const id = await dispatch(addOrderThunk())
-        console.log('id', id)
-        console.log('cart', cart)
+        // console.log('id', id)
+        // console.log('cart', cart)
         for (const el in cart) {
-            console.log('el', el)
+            // console.log('el', el)
             await dispatch(addOrderItemThunk(id, cart[el].productId, cart[el].quantity))
         }
         for (const el in cart) {
-            console.log('el', el)
+            // console.log('el', el)
             dispatch(removeFromCartThunk(cart[el].id))
         }
         history.push(`/order/${id}`);

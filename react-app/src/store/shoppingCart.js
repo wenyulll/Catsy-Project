@@ -44,7 +44,7 @@ export const addToCartThunk = (productId, quantity) => async (dispatch) => {
 
         if (response.ok) {
             const item = await response.json();
-            console.log('itemitemitemitemitemitemitemitem', item)
+            // console.log('itemitemitemitemitemitemitemitem', item)
             dispatch(addToCart(item));
             return item;
         }
@@ -81,7 +81,7 @@ export const loadCartThunk = () => async (dispatch) => {
 
         if (response.ok) {
             const items = await response.json();
-            console.log('itemitemitemitemitemitemitemitem', items['shopping_cart_items'])
+            // console.log('itemitemitemitemitemitemitemitem', items['shopping_cart_items'])
             dispatch(loadCart(items['shopping_cart_items']));
             return items;
         }
@@ -103,7 +103,7 @@ const cartReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_TO_CART: {
             const { item } = action.payload;
-            console.log('=============', item)
+            // console.log('=============', item)
             const productId = item['productId']
             return {
                 ...state,
