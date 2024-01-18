@@ -17,7 +17,6 @@ const OrderDetail = () => {
         return null
     }
 
-    console.log(order)
 
     return (
         <div className="order-detail">
