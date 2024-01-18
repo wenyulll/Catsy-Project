@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import './ProductTile.css'
 import { useHistory } from "react-router-dom";
 import DeleteProductModal from "../DeleteProductModal";
 import OpenModalButton from "../OpenModalButton";
 const ProductTile = ({ product, isManage }) => {
     const history = useHistory();
+    const [isLoading, setIsLoading] = useState(true);
+
+
+    // Function to handle image load
+    const handleImageLoad = () => {
+        setIsLoading(false);
+    };
 
     const handleProductClick = (e) => {
         e.preventDefault();
@@ -28,7 +35,8 @@ const ProductTile = ({ product, isManage }) => {
         <div className="all-product-tiles" onClick={handleProductClick}>
             <ul className="all-product-tiles-ul">
                 <div className="product-tile-image-container">
-                    <img src={product.image} alt={product.name} width="300" />
+                    {isLoading && <p>Loading...</p>}
+                    <img src={product.image} alt={product.name} width="300" onLoad={handleImageLoad} />
                 </div>
                 <div className="product-tile-text-container">
                     <div className="text-name">

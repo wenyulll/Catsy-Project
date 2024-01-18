@@ -29,7 +29,8 @@ const ProductDetail = () => {
     }, [dispatch, productId]);
 
     if (!product) {
-        return "404 NO PRODUCT FOUND!!";
+        // return "404 NO PRODUCT FOUND!!";
+        return null;
     }
 
     const handleAddToCart = () => {
@@ -64,12 +65,12 @@ const ProductDetail = () => {
                     <div className="product-name-image">
 
                         {/* <img src={product.image} alt={product.name} /> */}
-
+                        {isLoading && <p>Loading...</p>}
                         <img
                             src={product.image}
                             alt={product.name}
                             onLoad={handleImageLoad}
-                            style={{ display: isLoading ? 'none' : 'block' }} // Hide image while loading
+                        // style={{ display: isLoading ? 'none' : 'block' }} // Hide image while loading
                         />
 
                     </div>
