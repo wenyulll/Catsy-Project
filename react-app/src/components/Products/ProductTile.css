@@ -110,4 +110,10 @@ img {
 
 .edit-button {
     margin-right: 5px;
+    padding: 10px 28px;
+}
+
+.edit-delete-button-container {
+    display: flex;
+    justify-content: center;
 }
