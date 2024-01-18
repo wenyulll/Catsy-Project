@@ -12,12 +12,17 @@ const ProductDetail = () => {
 
     const dispatch = useDispatch();
     const { productId } = useParams();
-    // const product = useSelector((state) => state.products.products);
     const [quantity, setQuantity] = useState(1);
     const product = useSelector((state) => state.products.products[productId]);
     const sessionUser = useSelector((state) => state.session.user);
     const cart = useSelector((state) => state.shoppingCart.items);
-    // console.log('cartcartcartcartcartcartcart', cart)
+    const [isLoading, setIsLoading] = useState(true);
+
+
+    // Function to handle image load
+    const handleImageLoad = () => {
+        setIsLoading(false);
+    };
 
     useEffect(() => {
         dispatch(loadProductThunk(productId));
@@ -28,13 +33,13 @@ const ProductDetail = () => {
     }
 
     const handleAddToCart = () => {
-        // console.log(`${product.name} added to cart!`);
         if (!sessionUser) {
             alert("Please login first");
             return;
         }
 
         if (sessionUser.id === product.userId) {
+            alert("This is your own product");
             return;
         }
 
@@ -47,8 +52,7 @@ const ProductDetail = () => {
 
     };
 
-    // console.log('product.userId', product.userId)
-    // console.log('sessionUser.id', sessionUser.id)
+
     const isAddToCartButtonDisabled = sessionUser && (sessionUser.id === product.userId)
     console.log('isAddToCartButtonDisabled', isAddToCartButtonDisabled)
 
@@ -59,7 +63,15 @@ const ProductDetail = () => {
                 <div className="product-detail-left-container">
                     <div className="product-name-image">
 
-                        <img src={product.image} alt={product.name} />
+                        {/* <img src={product.image} alt={product.name} /> */}
+
+                        <img
+                            src={product.image}
+                            alt={product.name}
+                            onLoad={handleImageLoad}
+                            style={{ display: isLoading ? 'none' : 'block' }} // Hide image while loading
+                        />
+
                     </div>
                     <div className="product-review">
                         {product && (<ReviewIndex product={product} />)}
