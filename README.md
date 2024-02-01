@@ -44,6 +44,7 @@ Visit  [Catsy](https://catsy-project.onrender.com)  to access the Login and Sign
 - Python
 - Flask
 - SQL
+- Git
 
 ## Database Schema
 
