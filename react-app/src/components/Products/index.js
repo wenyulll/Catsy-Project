@@ -1,18 +1,30 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { loadProductsThunk } from "../../store/product";
 import ProductTile from "./ProductTile";
-import "./index.css"
-import Welcomelogo from '../Products/Welcomelogo.png'
+import "./index.css";
+import Welcomelogo from '../Products/Welcomelogo.png';
+
 const Products = () => {
     const dispatch = useDispatch();
     const products = useSelector((state) => state.products.products);
     const user = useSelector((state) => state.session.user);
 
-    // console.log("jksjfkjsk", products)
     useEffect(() => {
         dispatch(loadProductsThunk());
     }, [dispatch]);
+
+    // Utility function to shuffle an array
+    const shuffleArray = (array) => {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+        }
+        return array;
+    };
+
+    // Use useMemo to avoid reshuffling on every render, only reshuffle when products change
+    const shuffledProducts = useMemo(() => shuffleArray(Object.values(products || {})), [products]);
 
     return (
         <div>
@@ -29,7 +41,7 @@ const Products = () => {
 
             <div className="map-all-products">
                 <ul>
-                    {products && Object.values(products).map(product => (
+                    {shuffledProducts && shuffledProducts.map(product => (
                         <ProductTile key={product.id} product={product} isManage={false} />
                     ))}
                 </ul>
